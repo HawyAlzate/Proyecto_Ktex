@@ -1,0 +1,22 @@
+#footer1{
+    color: gainsboro !important;
+    background-color: #000 !important;
+    padding-top: 40px !important;
+    padding-bottom: 2% !important;
+}
+.container{
+    text-decoration: none !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+.social, .fabri{
+    font-size: 1em !important;
+    padding: 0px !important;
+    background: 0em !important;
+    border-style: none !important;
+    text-decoration: none;
+    color: cornsilk;
+}
+.pFooter{
+    text-align: center;
+}
