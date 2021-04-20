@@ -8,3 +8,5 @@ $cantidad = $_POST['Cant'];
 $resultado = "UPDATE stock_disponible SET  $color = ($color - $cantidad) WHERE  Referencia = '$ref' ";
 
 echo mysqli_query($conex, $resultado);
+
+?>

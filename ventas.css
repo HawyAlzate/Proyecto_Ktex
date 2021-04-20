@@ -129,7 +129,8 @@ section{
     margin: 2px 20px 30px 5px;
     padding: 0px;
     background: none !important;
-    border: none !important;
+    border: none;
+    border-bottom: 1 solid black;
     color: rgb(139, 33, 0);
     font-size: 2em;
     font-weight: 600;
