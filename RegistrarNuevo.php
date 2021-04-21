@@ -20,7 +20,6 @@ if (strlen($_POST['Referencia']) > 1) {
     $VerificarExistencia = "SELECT Referencia FROM stock_disponible";
     $ExisteRef = mysqli_query($conex, $VerificarExistencia);
     $filaExiste = mysqli_fetch_array($ExisteRef);
-    echo $filaExiste['Referencia'];
    
     if ($filaExiste['Referencia'] != $ref ) {
 

@@ -1,71 +1,75 @@
-body{
-    background: #02303d;
+* {
+    box-sizing: border-box;
 }
-h1{
-    color: honeydew;
-    font-size: 3em;
+
+body {
+    background: #010e11;
+}
+
+h1 {
+    color: #fff3dc;
+    font-size: 4em;
     text-align: center;
-    padding-top: 3%;
-    padding-bottom: 50px;
 }
-section{
-    display:flex;
-    justify-content: space-between;
+
+.flexContainer {
+    display: flex;
+    justify-content: space-evenly;
 }
-article{
-    margin-left:5% ;
-    margin-right: 3%;
-    width: 60%;
-    margin-bottom: 7%;
+
+section {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin-right: 10%;
 }
-#body, #blusa, #vestido, #falda{
-    border: 5px solid rgb(12, 32, 51);
-    margin: 15px;
-    padding: 30px  15px;
-    border-radius: 20px;
-    background: #055166;
-    width: 100%;
-}
-table{
-    border: 2px solid rgb(11, 57, 75);
-    text-align: center;
-    background: rgb(4, 28, 32);
-    border-radius: 5px;
-}
-tr, td, th {
-    border: 1px solid rgb(5, 50, 68);
-    border-radius: 5px;
-}
-td:hover{
-    background:#718580 ;
-}
-th,td{
-    background:#000 ;
-    color: floralwhite;
-    empty-cells: hide;
-}
-th{
-    color: rgb(35, 173, 197);
-}
-h2{
-    color:#d1ede6 ;
+
+h2 {
+    color: #d1ede6;
     font-size: 2em;
     display: inline;
 }
-#buscar{
-    color: rgb(6, 81, 100);
-    width: 200px;
-    font-weight: 700;
+
+.table {
     font-size: 1.5em;
+    border: 5px solid rgb(12, 32, 51);
+    padding: 15px 10px;
+    background: #033a4b;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+tr, td, th {
+    border: 1px solid rgb(5, 50, 68);
+    border-radius: 5px;
+    background: #000;
+    color: floralwhite;
+    empty-cells: hide;
+}
+
+td:hover {
+    background: #114d69;
+}
+
+th {
+    color: rgb(35, 173, 197);
+}
+
+#buscar {
+    color: rgb(6, 81, 100);
+    font-weight: 700;
+    font-size: 1em;
     border: 2px solid #032a30;
     border-radius: 6px;
 }
-.thVacio{
+
+.thVacio {
     background: none;
     border-style: none;
 }
-.alerta{
+
+.alerta {
     color: red;
 }
-
-

@@ -82,7 +82,7 @@ error_reporting(0);
                     <table>
                         <tr>
                             <th>Referencia</th>
-                            <th style="width:70px;">Diseño</th>
+                            <th style="width:70px">Diseño</th>
                             <th>Descripción</th>
                             <?php foreach ($colores as $color) {
                                 echo "<th>" . $color . "</th>";
@@ -93,7 +93,7 @@ error_reporting(0);
                             <td>
                                 <input type="text" name="Referencia" require>
                             </td>
-                            <td style="width:70px;">
+                            <td style="width:70px">
                                 <select name="Tipo">
                                     <option value="Body">Body</option>
                                     <option value="Blusa">Blusa</option>

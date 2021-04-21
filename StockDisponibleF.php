@@ -1,3 +1,7 @@
+<?php
+include("colores.php")
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,55 +17,45 @@
 </head>
 
 <body>
-    <nav>
-        <img src="imagenes/Ktex.jpg" alt="">
-        <ul>
-            <li><a href="Entradas.php" target="_blank" class="menu">Agregar <i class="fas fa-plus"> </i> </a> </li>
-            <li><a href="RegistrarVentaF.php" target="_blank" class="menu">Ventas <i class="fas fa-cart-arrow-down"> </i> </a> </li>
-            <li><a href="BuscarClientes.php" target="_blank" class="menu">Clientes <i class="fas fa-user-tie"></i></a></li>
-        </ul>
-    </nav>
-    <div>
-        <h1>Inventario Bodega</h1>
+
+    <h1>INVENTARIO EN BODEGA</h1>
+    <div class="flexContainer">
+
+        <nav>
+            <img src="imagenes/Ktex.jpg" alt="">
+            <ul>
+                <li><a href="Entradas.php" target="_blank" class="link">Agregar <i class="fas fa-plus"> </i> </a> </li>
+                <li><a href="RegistrarVentaF.php" target="_blank" class="link">Ventas <i class="fas fa-cart-arrow-down"> </i> </a> </li>
+                <li><a href="BuscarClientes.php" target="_blank" class="link">Clientes <i class="fas fa-user-tie"></i></a></li>
+            </ul>
+        </nav>
+        <section>
+            <form method="post">
+                <h2>Buscar producto:</h2>
+                <input type="text" id="buscar">
+            </form>
+            <table class="table" id="body">
+                <tr>
+                    <th rowspan="2">Referencia</th>
+                    <th rowspan="2">Diseño</th>
+                    <th rowspan="2">Descripción</th>
+
+                    <th colspan="10">Color</th>
+                    <th rowspan="2">Cantidad Parcial</th>
+                </tr>
+                <tr>
+                    <?php foreach ($colores as $color) {
+                        echo "<th>" . $color . "</th>";
+                    }
+                    ?>
+                </tr>
+                <tbody id="inventario">
+
+                </table>
+        </section>
     </div>
-    <section>
-        <article class="articleAll">
-
-            <div class="divBody">
-
-                
-
-                <form method="post">
-                    <h2>Buscar producto:</h2>
-                    <input type="text" id="buscar"" />
-                </form>
-                <br><br><br>
-				<table class=" table" id="body">
-                    <tr>
-                        <th rowspan="2">Referencia</th>
-                        <th rowspan="2">Tipo</th>
-                        <th rowspan="2">Descripción</th>
-
-                        <th colspan="10">Color</th>
-                        <th rowspan="2">Cantidad Parcial</th>
-                    </tr>
-                    <tr>
-                        <th>Blanco</th>
-                        <th>Negro</th>
-                        <th>Azul</th>
-                        <th>Rojo</th>
-                        <th>Vinotinto</th>
-                        <th>Mostaza</th>
-                        <th>Verde Militar</th>
-                        <th>Amarillo Neón</th>
-                        <th>Rosa Neón</th>                        
-                        <th>Naranja Neón</th>
-                    </tr>
-                    <tbody id="inventario">
-        </article>
-    </section>
     <script src="StockDisponible.js"></script>
-
+ <?php include("footer.php")?>
 </body>
 
 </html>

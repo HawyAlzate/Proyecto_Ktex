@@ -1,113 +1,154 @@
 <?php
-$mysqli = mysqli_connect("localhost", "root", "1234", "inventario");
+include("include.php");
 
+
+$sumaTotal = "SELECT SUM(Blanco+Negro+Azul+Rojo+Vinotinto+Mostaza+VerdeMilitar+PaloDeRosa+Lila+Otro) as CantidadTotal FROM stock_disponible";
 $query = "SELECT * FROM stock_disponible order by Referencia";
-$Suma_B = "SELECT  SUM(Blanco) AS blanco from stock_disponible";
-$Suma_N = "SELECT  SUM(Negro) AS negro from stock_disponible";
-$Suma_A = "SELECT  SUM(Azul) AS azul from stock_disponible";
-$Suma_R = "SELECT  SUM(Rojo) AS rojo from stock_disponible";
-$Suma_V = "SELECT  SUM(Vinotinto) AS vinotinto from stock_disponible";
-$Suma_M = "SELECT  SUM(Mostaza) AS mostaza from stock_disponible";
-$Suma_VM = "SELECT  SUM(VerdeMilitar) AS verdemilitar from stock_disponible";
-$Suma_AN = "SELECT  SUM(AmarilloNeon) AS amarilloneon from stock_disponible";
-$Suma_RN = "SELECT  SUM(RosaNeon) AS rosaneon from stock_disponible";
-$Suma_NN = "SELECT  SUM(NaranjaNeon) AS naranjaneon from stock_disponible";
 
+function SumaColor($conex, $Color, $color)
+{
 
-$Suma_b = mysqli_query($mysqli, $Suma_B);
-$suma_b = mysqli_fetch_array($Suma_b);
+    $SumarColor = "SELECT  SUM($Color) AS $color from stock_disponible";
 
-$Suma_n = mysqli_query($mysqli, $Suma_N);
-$suma_n = mysqli_fetch_assoc($Suma_n);
+    $Resultado = mysqli_query($conex, $SumarColor);
+    $ColorTotal = mysqli_fetch_assoc($Resultado);
+    return $ColorTotal[$color];
+}
+$Color1 = SumaColor($conex, $Negro, $negro);
+$Color2 = SumaColor($conex, $Blanco, $blanco);
+$Color3 = SumaColor($conex, $Rojo, $rojo);
+$Color4 = SumaColor($conex, $Azul, $azul);
+$Color5 = SumaColor($conex, $Vinotinto, $vinotinto);
+$Color6 = SumaColor($conex, $Mostaza, $mostaza);
+$Color7 = SumaColor($conex, $VerdeMilitar, $verdemilitar);
+$Color8 = SumaColor($conex, $PaloDeRosa, $paloderosa);
+$Color9 = SumaColor($conex, $Lila, $lila);
+$Color10 = SumaColor($conex, $Otro, $otro);
 
-$Suma_a = mysqli_query($mysqli, $Suma_A);
-$suma_a = mysqli_fetch_assoc($Suma_a);
-
-$Suma_r = mysqli_query($mysqli, $Suma_R);
-$suma_r = mysqli_fetch_assoc($Suma_r);
-
-$Suma_v = mysqli_query($mysqli, $Suma_V);
-$suma_v = mysqli_fetch_assoc($Suma_v);
-
-$Suma_m = mysqli_query($mysqli, $Suma_M);
-$suma_m = mysqli_fetch_assoc($Suma_m);
-
-$Suma_vm = mysqli_query($mysqli, $Suma_VM);
-$suma_vm = mysqli_fetch_assoc($Suma_vm);
-
-$Suma_am = mysqli_query($mysqli, $Suma_AN);
-$suma_am = mysqli_fetch_assoc($Suma_am);
-
-$Suma_rn = mysqli_query($mysqli, $Suma_RN);
-$suma_rn = mysqli_fetch_assoc($Suma_rn);
-
-$Suma_nn = mysqli_query($mysqli, $Suma_NN);
-$suma_nn = mysqli_fetch_assoc($Suma_nn);
 
 $salida = "";
 
 
-$sumaTotal = "SELECT SUM(Blanco+Negro+Azul+Rojo+Vinotinto+Mostaza+VerdeMilitar+AmarilloNeon+RosaNeon+NaranjaNeon) as CantidadParcial FROM stock_disponible";
-
-$datosTotal = mysqli_query($mysqli, $sumaTotal);
-$filaTotal = mysqli_fetch_array($datosTotal);
 
 
-
-
-if (isset($_POST['consulta'])) {
+if (isset( $_POST['consulta'])) {
     $a = $_POST['consulta'];
 
-    $query = "SELECT * FROM stock_disponible where  Referencia like '$a%' or Tipo like '%$a%'or Descripcion like '%$a%'";
+    function SumarColor($conex, $Color, $color, $a)
+    {
 
-    $sumaTotal = "SELECT SUM(Blanco+Negro+Azul+Rojo+Vinotinto+Mostaza+VerdeMilitar+AmarilloNeon+ RosaNeon+ NaranjaNeon) as CantidadParcial FROM stock_disponible WHERE Referencia like '%$a%'or Tipo like '%$a%'or Descripcion like '%$a%'";
+        $SumarColor = "SELECT  SUM($Color) AS $color from stock_disponible where Referencia like '$a%' or Tipo like '%$a%'or Descripcion like '%$a%'";
 
-    $datosTotal = mysqli_query($mysqli, $sumaTotal);
-    $filaTotal = mysqli_fetch_array($datosTotal);
+        $Resultado = mysqli_query($conex, $SumarColor);
+        $ColorTotal = mysqli_fetch_assoc($Resultado);
+        return $ColorTotal[$color];
+    }
+    $Color1 = SumarColor($conex, $Negro, $negro, $a);
+    $Color2 = SumarColor($conex, $Blanco, $blanco, $a);
+    $Color3 = SumarColor($conex, $Rojo, $rojo, $a);
+    $Color4 = SumarColor($conex, $Azul, $azul, $a);
+    $Color5 = SumarColor($conex, $Vinotinto, $vinotinto, $a);
+    $Color6 = SumarColor($conex, $Mostaza, $mostaza, $a);
+    $Color7 = SumarColor($conex, $VerdeMilitar, $verdemilitar, $a);
+    $Color8 = SumarColor($conex, $PaloDeRosa, $paloderosa, $a);
+    $Color9 = SumarColor($conex, $Lila, $lila, $a);
+    $Color10 = SumarColor($conex, $Otro, $otro, $a);
+
+
+    $query = "SELECT * FROM stock_disponible where Referencia like '$a%' or Tipo like '%$a%'or Descripcion like '%$a%'";
+    $resulado = mysqli_query($conex, $query);
+
+    if (mysqli_num_rows($resulado) > 0) {
+
+        while ($fila = mysqli_fetch_assoc($resulado)) {
+
+            $suma = $fila['Blanco'] + $fila['Negro'] + $fila['Azul'] + $fila['Rojo'] +  $fila['Vinotinto'] + $fila['Mostaza'] + $fila['VerdeMilitar'] + $fila['PaloDeRosa'] + $fila['Lila'] + $fila['Otro'];
+            $salida .= "<tr>
+            <td>" . $fila['Referencia'] . "</td>
+            <td>" . $fila['Tipo'] . "</td>
+            <td>" . $fila['Descripcion'] . "</td>
+            <td>" . $fila['Negro'] . "</td>
+            <td>" . $fila['Blanco'] . "</td>
+            <td>" . $fila['Rojo'] . "</td>
+            <td>" . $fila['Azul'] . "</td>
+            <td>" . $fila['Vinotinto'] . "</td>
+            <td>" . $fila['Mostaza'] . "</td>
+            <td>" . $fila['VerdeMilitar'] . "</td>
+            <td>" . $fila['PaloDeRosa'] . "</td>
+            <td>" . $fila['Lila'] . "</td>
+            <td>" . $fila['Otro'] . "</td>
+            <td>" . $suma . "</td></tr>";
+        }
+        
+        $sumaTotal = "SELECT SUM(Blanco+Negro+Azul+Rojo+Vinotinto+Mostaza+VerdeMilitar+PaloDeRosa+ Lila+ Otro) as CantidadTotal FROM stock_disponible where Referencia like '$a%' or Tipo like '%$a%'or Descripcion like '%$a%'";
+        $datosTotal = mysqli_query($conex, $sumaTotal);
+        $DatoTotal = mysqli_fetch_array($datosTotal);
+
+        $salida .= "<tr>
+        <th colspan='3'>Cantidad Total</th>
+        <th>" . $Color1 . "</th>
+        <th>" . $Color2 . "</th>
+        <th>" . $Color3 . "</th>
+        <th>" . $Color4 . "</th>
+        <th>" . $Color5 . "</th>
+        <th>" . $Color6 . "</th>
+        <th>" . $Color7 . "</th>
+        <th>" . $Color8 . "</th>
+        <th>" . $Color9 . "</th>
+        <th>" . $Color10 . "</th>
+        <td style='color:red; font-size:2em'>" . $DatoTotal['CantidadTotal'] . "</td></tr></tbody>";
+    }
+    echo $salida;
 }
-$resulado = mysqli_query($mysqli, $query);
 
+
+
+$resulado = mysqli_query($conex, $query);
 
 if (mysqli_num_rows($resulado) > 0) {
 
     while ($fila = mysqli_fetch_assoc($resulado)) {
 
-        $suma = $fila['Blanco'] + $fila['Negro'] + $fila['Azul'] + $fila['Rojo'] +  $fila['Vinotinto'] + $fila['Mostaza'] + $fila['VerdeMilitar'] + $fila['AmarilloNeon'] + $fila['RosaNeon'] + $fila['NaranjaNeon'];
+        $suma = $fila['Blanco'] + $fila['Negro'] + $fila['Azul'] + $fila['Rojo'] +  $fila['Vinotinto'] + $fila['Mostaza'] + $fila['VerdeMilitar'] + $fila['PaloDeRosa'] + $fila['Lila'] + $fila['Otro'];
         $salida .= "<tr>
         <td>" . $fila['Referencia'] . "</td>
         <td>" . $fila['Tipo'] . "</td>
         <td>" . $fila['Descripcion'] . "</td>
-        <td>" . $fila['Blanco'] . "</td>
         <td>" . $fila['Negro'] . "</td>
-        <td>" . $fila['Azul'] . "</td>
+        <td>" . $fila['Blanco'] . "</td>
         <td>" . $fila['Rojo'] . "</td>
+        <td>" . $fila['Azul'] . "</td>
         <td>" . $fila['Vinotinto'] . "</td>
         <td>" . $fila['Mostaza'] . "</td>
         <td>" . $fila['VerdeMilitar'] . "</td>
-        <td>" . $fila['AmarilloNeon'] . "</td>
-        <td>" . $fila['RosaNeon'] . "</td>
-        <td>" . $fila['NaranjaNeon'] . "</td>
+        <td>" . $fila['PaloDeRosa'] . "</td>
+        <td>" . $fila['Lila'] . "</td>
+        <td>" . $fila['Otro'] . "</td>
         <td>" . $suma . "</td>
         </tr>
         ";
     }
 
+    $datosTotal = mysqli_query($conex, $sumaTotal);
+    $DatoTotal = mysqli_fetch_array($datosTotal);
+    
+    
     $salida .= "<tr>
-    <th colspan='3'></th>
-    <th>" . $suma_b['blanco'] . "</th>
-    <th>" . $suma_n['negro'] . "</th>
-    <th>" . $suma_a['azul'] . "</th>
-    <th>" . $suma_r['rojo'] . "</th>
-    <th>" . $suma_v['vinotinto'] . "</th>
-    <th>" . $suma_m['mostaza'] . "</th>
-    <th>" . $suma_vm['verdemilitar'] . "</th>
-    <th>" . $suma_am['amarilloneon'] . "</th>
-    <th>" . $suma_rn['rosaneon'] . "</th>
-    <th>" . $suma_nn['naranjaneon'] . "</th>
-    <td style='color:red; font-size:2em'>" . $filaTotal ['CantidadParcial'] . "</td></tr></tbody>/table>";
+    <th colspan='3'>Cantidad Total</th>
+    <th>" . $Color1 . "</th>
+        <th>" . $Color2 . "</th>
+        <th>" . $Color3 . "</th>
+        <th>" . $Color4 . "</th>
+        <th>" . $Color5 . "</th>
+        <th>" . $Color6 . "</th>
+        <th>" . $Color7 . "</th>
+        <th>" . $Color8 . "</th>
+        <th>" . $Color9 . "</th>
+        <th>" . $Color10 . "</th>
+    <td style='color:red; font-size:2em'>" . $DatoTotal['CantidadTotal'] . "</td></tr></tbody>";
 } else {
-    $salida .= "<tr><td style='color:red'>No hay datos</td></tr></tbody>/table>";
+    $salida .= "<tr><td style='color:red'>No hay datos</td></tr></tbody>";
 }
 
 echo $salida;
-mysqli_close($mysqli);
+mysqli_close($conex);
