@@ -4,13 +4,11 @@ include("include.php");
 
 $Referencia = $_POST['Referencia'];
 
-
-
-
-
-if (strlen($_POST['Referencia']) >= 1) {
+if (isset($_POST['Referencia'])) {
 
     $EnviarEntrada = "SELECT * FROM stock_disponible WHERE Referencia = '$Referencia'";
+
+    
 
     $Resultado = mysqli_query($conex, $EnviarEntrada);
 
@@ -25,9 +23,9 @@ if (strlen($_POST['Referencia']) >= 1) {
         $V = $Ciclo['Vinotinto'];
         $M = $Ciclo['Mostaza'];
         $VM = $Ciclo['VerdeMilitar'];
-        $AN = $Ciclo['AmarilloNeon'];
-        $RN = $Ciclo['RosaNeon'];
-        $NN = $Ciclo['NaranjaNeon'];
+        $PR = $Ciclo['PaloDeRosa'];
+        $L = $Ciclo['Lila'];
+        $O = $Ciclo['Otro'];
 
 
         $blanco = $B + (int) $_POST['Blanco'];
@@ -37,12 +35,12 @@ if (strlen($_POST['Referencia']) >= 1) {
         $vinotinto = $V + (int) $_POST['Vinotinto'];
         $mostaza = $M + (int) $_POST['Mostaza'];
         $VerdeMilitar = $VM + (int) $_POST['VerdeMilitar'];
-        $AmarilloNeon = $AN + (int) $_POST['AmarilloNeon'];
-        $RosaNeon = $RN + (int) $_POST['RosaNeon'];
-        $NaranjaNeon = $NN + (int) $_POST['NaranjaNeon'];
+        $PaloDeRosa = $PR + (int) $_POST['PaloDeRosa'];
+        $Lila = $L + (int) $_POST['Lila'];
+        $Otro = $O + (int) $_POST['Otro'];
 
 
-        $resultado = "UPDATE stock_disponible SET  Blanco='$blanco' , Negro='$negro', Azul='$azul', Rojo='$rojo', Vinotinto='$vinotinto', Mostaza='$mostaza', VerdeMilitar='$VerdeMilitar', AmarilloNeon='$AmarilloNeon', RosaNeon ='$RosaNeon', NaranjaNeon='$NaranjaNeon' WHERE Referencia='$Referencia'";
+        $resultado = "UPDATE stock_disponible SET  Blanco='$blanco' , Negro='$negro', Azul='$azul', Rojo='$rojo', Vinotinto='$vinotinto', Mostaza='$mostaza', VerdeMilitar='$VerdeMilitar', PaloDeRosa='$PaloDeRosa', Lila ='$Lila', Otro='$Otro' WHERE Referencia='$Referencia'";
 
         $accion = mysqli_query($conex, $resultado);
         echo $accion;

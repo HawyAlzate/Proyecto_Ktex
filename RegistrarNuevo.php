@@ -2,7 +2,7 @@
 
 include("include.php");
 
-if (strlen($_POST['Referencia']) >= 1) {
+if (strlen($_POST['Referencia']) > 1) {
     $ref = $_POST['Referencia'];
     $tipo = $_POST['Tipo'];
     $desc = $_POST['Descripcion'];
@@ -13,23 +13,27 @@ if (strlen($_POST['Referencia']) >= 1) {
     $vinotinto = (int) $_POST['Vinotinto'];
     $mostaza = (int) $_POST['Mostaza'];
     $VerdeMilitar = (int) $_POST['VerdeMilitar'];
-    $AmarilloNeon = (int) $_POST['AmarilloNeon'];
-    $RosaNeon = (int) $_POST['RosaNeon'];
-    $NaranjaNeon = (int) $_POST['NaranjaNeon'];
+    $PaloDeRosa = (int) $_POST['PaloDeRosa'];
+    $Lila = (int) $_POST['Lila'];
+    $Otro = (int) $_POST['Otro'];
 
-    $VerificarRef = "SELECT Referencia FROM stock_disponible where Referencia = '$ref'";
-    $ExisteRef = mysqli_query($conex, $VerificarRef);
+    $VerificarExistencia = "SELECT Referencia FROM stock_disponible";
+    $ExisteRef = mysqli_query($conex, $VerificarExistencia);
     $filaExiste = mysqli_fetch_array($ExisteRef);
+    echo $filaExiste['Referencia'];
+   
+    if ($filaExiste['Referencia'] != $ref ) {
 
-    if (EMPTY($filaExiste['Referencia']) == $ref) {
-
-        $resultado = "INSERT INTO stock_disponible (Referencia, Tipo, Descripcion, Blanco, Negro, Azul, Rojo, Vinotinto, Mostaza, VerdeMilitar, AmarilloNeon, RosaNeon, NaranjaNeon) VALUES ('$ref','$tipo','$desc','$blanco','$negro','$azul','$rojo','$vinotinto','$mostaza','$VerdeMilitar', '$AmarilloNeon', '$RosaNeon', '$NaranjaNeon')";
+        $resultado = "INSERT INTO stock_disponible (Referencia, Tipo, Descripcion, Blanco, Negro, Azul, Rojo, Vinotinto, Mostaza, VerdeMilitar, PaloDeRosa, Lila, Otro) VALUES ('$ref','$tipo','$desc','$blanco','$negro','$azul','$rojo','$vinotinto','$mostaza','$VerdeMilitar', '$PaloDeRosa', '$Lila', '$Otro')";
 
         $accion = mysqli_query($conex, $resultado);
         echo $accion;
 
+    } else if ($filaExiste['Referencia'] == $ref) {
+        echo "Referencia Existente";
+        
         mysqli_close($conex);
-    } else {
-        echo "2";
     }
+} else {
+    echo "Referencia sin ingresar";
 }

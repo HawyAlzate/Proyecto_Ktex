@@ -1,65 +1,96 @@
-body{
-    background: #02303d;
-    width: 100%;
+* {
+    box-sizing: border-box;
 }
-.h1{
-    color: floralwhite;
-    margin: auto;
+
+body {
+    background: #010e11;
+}
+
+h1 {
+    color: #fff3dc;
     font-size: 4em;
-    text-align: center;
+    display: inline-block;
+    margin: 40px 0 80px 35% ;
+
 }
-h2{
-    color: floralwhite;
-    border-bottom:2px solid floralwhite;
+.divContainerAll{
+    display: flex;
+    justify-content: space-between;
 }
-table{
-    border: 2px solid rgb(11, 57, 75);
-    text-align: center;
-    background: rgb(4, 28, 32);
-    border-radius: 5px;
+.divContainer {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin-right: 10%;
 }
-.div_all{
-    margin-top: 10px;
-    padding-top: 100px;
-    padding-bottom: 7%;
+
+h2 {
+    font-size: 3em;
+    color: #fff3dc;
+    border-bottom: 3px solid #fff3dc;
 }
-section{
+
+section {
     border: 5px solid rgb(12, 32, 51);
-    margin: 15px;
-    padding: 30px  15px;
+    padding: 20px 15px;
     border-radius: 20px;
-    background: #055166;
-    
-}
-tr, td, th {
-    border: 1px solid rgb(5, 50, 68);
-    border-radius: 5px;
-}
-td:hover{
-    background:#718580 ;
-}
-th{
-    background:#000 ;
-    color: floralwhite;
-}
-.div_all{
-    margin:2% 15%;
-}
-input{
-    width: 80px;
-    border-radius: 5px;
-    border-color: black;
-}
-input:hover{
-    background: rgb(167, 164, 164);
-}
-[type="submit"]{
-    background: #046487;
-    font-weight: 800;
-    padding: 5px;
-    margin-left: 45%;
+    background: #044557;
     margin-top: 20px;
 }
-[type="submit"]:hover{
-background:#057da8 ;
+
+table {
+    border: 2px solid rgb(11, 57, 75);
+    text-align: center;
+    font-size: 1.6em;
+    background: rgb(2, 31, 36);
+}
+
+td, th {
+    border: 1px solid rgb(5, 50, 68);
+    border-radius: 5px;
+    background: #000;
+    color: floralwhite;
+    height: 30px;
+}
+
+td:hover {
+    background: #a4e4f0;
+}
+
+select {
+width: 100%;
+color:brown; 
+height: 100%;
+font-weight: 900;
+font-size: 18px;
+}
+
+input {
+    width:100%;
+    height: 40px;
+    border-radius: 5px;
+    border-color: black;
+    font-size: 1em;
+    font-weight: 900;
+    color: brown;
+    text-align: center;
+}
+
+input:hover {
+    background: rgb(167, 164, 164);
+}
+
+[type="submit"] {
+    background: #046487;
+    font-weight: 800;
+    color:cornsilk;
+    padding: 5px;
+    width: 120px;
+    margin-left: 45%;
+    margin-top: 20px;
+
+}
+
+[type="submit"]:hover {
+    background: #057da8;
 }

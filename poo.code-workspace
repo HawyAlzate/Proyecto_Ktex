@@ -8,6 +8,7 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "proyectos"
+		"liveServer.settings.multiRootWorkspaceName": "Proyecto_Ktex",
+		"liveServer.settings.port": 81
 	}
 }

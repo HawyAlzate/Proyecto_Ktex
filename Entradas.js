@@ -15,11 +15,11 @@ function RegistrarEntradas() {
         data: datos,
         success: function (e) {
             if (e == 1) {
-                alerta.innerHTML = "<p style='color:black;background:#88f268;padding:5px;width:200px'>Entrada registrada exitosamente!!</p>"
+                alerta.innerHTML = "<p style='color:black;background:#88f268;padding:5px;width:300px'>¡Entrada registrada exitosamente!</p>"
             } else if (e == "Sin Datos") {
-                alerta.innerHTML = "<p style='color:black;background:#ff8119;padding:5px;width:200px'>Llene todos los datos!!</p>"
+                alerta.innerHTML = "<p style='color:black;background:#ff8119;padding:5px;width:300px'>¡Falta la Referencia!</p>"
             } else {
-                alerta.innerHTML = "<p style='color:black;background:#ff8119;padding:5px;width:200px'>Error en la conexión a la base de datos!!</p>"
+                alerta.innerHTML = "<p style='color:black;background:#ff8119;padding:5px;width:300px'>¡Error en la conexión a la base de datos!</p>"
             }
         }
     });
@@ -47,10 +47,13 @@ function RegistrarNuevo() {
         success: function (e) {
             alert(e)
             if (e == 1) {
-                Anuncio.innerHTML = "<p style='color:black;background:#88f268;padding:5px;width:200px'>Referencia registrada correctamente!!</p>"
-            } else if (e ==2) {
+                Anuncio.innerHTML = "<p style='color:black;background:#88f268;padding:5px;width:300px'>¡Referencia registrada correctamente!</p>"
+            } else if (e == "Referencia Existente") {
                 
-                Anuncio.innerHTML = "<p style='color:black;background:#ff8119;padding:5px;width:200px'>La Referencia ya se encuenra registrada!!</p>"
+                Anuncio.innerHTML = "<p style='color:black;background:#ff8119;padding:5px;width:300px'>¡La Referencia ya se encuenra registrada!</p>"
+            } else if (e == "Referencia sin ingresar"){
+
+                Anuncio.innerHTML = "<p style='color:black;background:#ff8119;padding:5px;width:300px'>¡No has ingresado datos!</p>"
             }
         }
     });
