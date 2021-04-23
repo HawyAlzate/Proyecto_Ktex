@@ -23,7 +23,7 @@ h1 {
     margin-right: 10%;
 }
 
-h2 {
+h2{
     font-size: 3em;
     color: #fff3dc;
     border-bottom: 3px solid #fff3dc;
@@ -35,8 +35,30 @@ section {
     border-radius: 20px;
     background: #044557;
     margin-top: 20px;
+}.gestionarColores {
+    text-decoration: none;
+    
+    font-size: 1em;
+    color: #fff3dc;
+    border-bottom: 3px solid #fff3dc;
 }
 
+#inputColor {
+    padding: 5px;
+    width: 300px;
+    font-size: 1em;
+    margin-top: 20px;
+    border-radius: 5px;
+    border-color: black;
+    font-size: 1.3em;
+    font-weight: 900;
+    color: rgb(8, 63, 88);
+}
+
+.divSubmit {
+    display: flex;
+    justify-content: center;
+}
 table {
     border: 2px solid rgb(11, 57, 75);
     text-align: center;
@@ -66,7 +88,7 @@ font-size: 18px;
 border-radius: 5PX;
 }
 
-input {
+td input {
     width: 100%;
     height: 40px;
     border-radius: 5px;
@@ -81,17 +103,21 @@ input:hover {
     background: rgb(167, 164, 164);
 }
 
-[type="submit"] {
+.Boton{
     background: #046487;
     font-weight: 800;
     color:cornsilk;
     padding: 5px;
-    width: 120px;
-    margin-left: 45%;
-    margin-top: 20px;
+    margin: 20px 0 0 10px;
+    border-radius: 5px;
+    border-color: black;
+    font-size: 1em;
 
 }
+#AgregarN {
+    margin-left: 43%;
+}
 
-[type="submit"]:hover {
+.Boton:hover {
     background: #057da8;
 }

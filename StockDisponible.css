@@ -42,11 +42,14 @@ h2 {
 }
 
 tr, td, th {
-    border: 1px solid rgb(5, 50, 68);
+    border: 1px solid rgb(3, 74, 102);
     border-radius: 5px;
-    background: #000;
     color: floralwhite;
     empty-cells: hide;
+}
+
+tr:nth-child(2n+2) {
+    background: #012631;
 }
 
 td:hover {
@@ -55,6 +58,10 @@ td:hover {
 
 th {
     color: rgb(35, 173, 197);
+    background: #011b1f;
+}
+tr:nth-child(2n+1){
+    background: #03323a;
 }
 
 #buscar {

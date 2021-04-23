@@ -96,7 +96,7 @@ if (isset( $_POST['consulta'])) {
         <th>" . $Color8 . "</th>
         <th>" . $Color9 . "</th>
         <th>" . $Color10 . "</th>
-        <td style='color:red; font-size:2em'>" . $DatoTotal['CantidadTotal'] . "</td></tr></tbody>";
+        <th style='color:red; font-size:2em'>" . $DatoTotal['CantidadTotal'] . "</th></tr></tbody>";
     }
     echo $salida;
 }
@@ -145,7 +145,7 @@ if (mysqli_num_rows($resulado) > 0) {
         <th>" . $Color8 . "</th>
         <th>" . $Color9 . "</th>
         <th>" . $Color10 . "</th>
-    <td style='color:red; font-size:2em'>" . $DatoTotal['CantidadTotal'] . "</td></tr></tbody>";
+    <th style='color:red; font-size:2em'>" . $DatoTotal['CantidadTotal'] . "</th></tr></tbody>";
 } else {
     $salida .= "<tr><td style='color:red'>No hay datos</td></tr></tbody>";
 }

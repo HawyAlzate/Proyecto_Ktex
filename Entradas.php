@@ -1,8 +1,8 @@
-<?php
+<?php/*
 include("include.php");
 include("colores.php");
 error_reporting(0);
-
+*/
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ error_reporting(0);
     <link rel="stylesheet" href="menu.css">
     <link rel="stylesheet" href="footer.css">
     <script src="https://kit.fontawesome.com/fa3825e370.js" crossorigin="anonymous"></script>
-    <script src="Entradas.js"></script>
+    <!--<script src="Entradas.js"></script>-->
     <title>Entradas Ktex</title>
 </head>
 
@@ -30,11 +30,12 @@ error_reporting(0);
 
         <nav>
 
-        <img src="imagenes/Ktex.jpg" alt="logo">
-        <ul>
-            <li><a href="StockDisponibleF.php" target="_blank" class="link">Inventario <i class="fas fa-cubes"></i></a> </li>
-            <li><a href="RegistrarVentaF.php" target="_blank" class="link">Ventas <i class="fas fa-cart-arrow-down"></i></a></li>
-            <li><a href="BuscarClientes.php" target="_blank" class="link">Clientes <i class="fas fa-user-tie"></i></a></li>
+            <img src="imagenes/Ktex.jpg" alt="logo">
+            <ul>
+                <li><a href="StockDisponibleF.php" target="_blank" class="link">Inventario  <i class="fas fa-cubes"></i></a> </li>
+                <li><a href="RegistrarVentaF.php" target="_blank" class="link">Ventas  <i class="fas fa-cart-arrow-down"></i></a></li>
+                <li><a href="BuscarClientes.php" target="_blank" class="link">Clientes  <i class="fas fa-user-tie"></i></a></li>
+                <li><a href="colores.php" target="_blank" class="link">Colores  <i class="fa fa-eyedropper" aria-hidden="true"></i></a></li>
             </ul>
         </nav>
 
@@ -43,8 +44,11 @@ error_reporting(0);
 
 
             <section>
+
+                
+
                 <h2>Ingresar a Bodega</h2>
-                <form action="" method="post" id="FormEntradasC">
+                <form action="" method="post" id="FormEntradaC">
                     <table>
                         <tr>
                             <th>Referencia</th>
@@ -64,13 +68,16 @@ error_reporting(0);
                             <?php
 
                             foreach ($colores as $color) {
-                                echo "<td><input type= 'text' name=" . str_replace(' ', '', $color) . " id=" . str_replace(' ', '', $color) . "></td>";
+                                echo "<td><input type= 'text' name=" . str_replace(' ', '', $color) . " id=" . str_replace(' ', '', $color) . " id=" . str_replace(' ', '', $color) . "></td>";
                             }
                             ?>
 
                         </tr>
                     </table>
-                    <input type="submit" value="Agregar" name="agregarC" id="AgregarC">
+                    <div class="divSubmit">
+                        <input type="submit" value="Agregar Cantidad" name="agregarC" id="AgregarEntrada" class="Boton">
+                        <input type="submit" value="Eliminar Cantidad" name="eliminarC" id="EliminarEntrada" class="Boton">
+                    </div>
                 </form>
                 <div id="alerta"></div>
 
@@ -111,7 +118,7 @@ error_reporting(0);
                             ?>
                         </tr>
                     </table>
-                    <input type="submit" value="Agregar" name="agregarN" id="AgregarN">
+                    <input type="submit" value="Agregar Referencia" name="agregarN" id="AgregarN" class="Boton">
                 </form>
                 <div id="Anuncio">
 

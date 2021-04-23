@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background: #010e11;
+}
+.divAll {
+    display: flex;
+    justify-content: center;
+
+
+}
+h1 {
+    
+    color: #fff3dc;
+    font-size: 4em;
+    text-align: center;
+
+}
+form {
+    margin: 20px 0 0 100px;
+    width: 22%;
+}
+table {
+    background:  #044557;
+    border: 5px solid  #03252e ;
+    border-radius: 5px;
+    width: 100%;
+}
+tbody {
+    display:flex ;
+    flex-direction: column-reverse;
+}
+th {
+    color: #fff3dc;
+    font-size: 4em;
+    text-align: center;
+
+}
+.thCambiarColor {
+    font-size: 2em;
+}
+
+input{
+    height: 40px;
+    width: 75%;
+    font-size: 1.5em;
+    padding: 5px;
+    color:#fff3dc;
+    font-weight: 900;
+    background: #010e11;
+    border-radius: 5px;
+    border: 1px solid #03252e ;
+    margin: 10px 0 10px 10px;
+}
+.cambiarColor {
+    width: 100%;
+    margin: 10px 10px 10px 0;
+}
+.fa {
+    font-size: 30px;
+    color: #098d9e;
+    margin-left: 12px;
+}
+i:hover {
+    text-shadow:1px 1px 5px #0ab8d6;
+}
+.divColorNuevo {
+    background:  #044557;
+    border: 3px solid  #022a35;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 10px;
+
+}
+button {
+    
+    background: #033542;
+    font-weight: 800;
+    font-size: 1.5em;
+    color:cornsilk;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: 2px solid rgb(2, 34, 44);
+    width: 100%;
+    padding:10px;
+
+}
+button:hover {
+    background: #056470;
+}
+#colorNuevo {
+    width: 100%;
+    margin: 10px 0 0 0;
+}
